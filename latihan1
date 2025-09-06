@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Latihan Login & Tebak Kata</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      margin-top: 80px;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      width: 350px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+
+    #result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman Login -->
+  <div class="container" id="loginPage">
+    <div class="box">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Masuk</button>
+      <p id="error"></p>
+    </div>
+  </div>
+
+  <!-- Halaman Utama -->
+  <div class="container" id="mainPage" style="display:none;">
+    <div class="box">
+      <h2>Selamat Datang!</h2>
+      <p>Nama: Budi</p>
+      <p>Kelas: 8A</p>
+      <hr>
+      <h3>Permainan Tebak Kata</h3>
+      <p id="wordDisplay"></p>
+      <input type="text" id="letter" maxlength="1" placeholder="Masukkan huruf">
+      <button onclick="tebakHuruf()">Tebak Huruf</button>
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <script>
+    // Fungsi login
+    function login() {
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+      let errorMsg = document.getElementById("error");
+
+      if (user === "user" && pass === "1234") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+      } else {
+        errorMsg.textContent = "Username atau Password salah!";
+      }
+    }
+
+    // Permainan Tebak Kata
+    let kataRahasia = "sekolah"; // kata yang harus ditebak
+    let tampilKata = Array(kataRahasia.length).fill("_"); // buat garis bawah
+
+    document.getElementById("wordDisplay").textContent = tampilKata.join(" ");
+
+    function tebakHuruf() {
+      let huruf = document.getElementById("letter").value.toLowerCase();
+      let berhasil = false;
+
+      // cek huruf
+      for (let i = 0; i < kataRahasia.length; i++) {
+        if (kataRahasia[i] === huruf) {
+          tampilKata[i] = huruf;
+          berhasil = true;
+        }
+      }
+
+      // tampilkan hasil tebakan
+      document.getElementById("wordDisplay").textContent = tampilKata.join(" ");
+      document.getElementById("letter").value = "";
+
+      if (berhasil) {
+        document.getElementById("result").textContent = "Huruf benar!";
+      } else {
+        document.getElementById("result").textContent = "Huruf salah, coba lagi.";
+      }
+
+      // cek apakah kata sudah lengkap
+      if (!tampilKata.includes("_")) {
+        document.getElementById("result").textContent = "Selamat! Kamu berhasil menebak kata: " + kataRahasia;
+      }
+    }
+  </script>
+</body>
+</html>

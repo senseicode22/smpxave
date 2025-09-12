@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Perkenalan Saya</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      color: #333;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: yellow;
+    }
+    section {
+      padding: 30px;
+      margin: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: #444;
+      border-bottom: 2px solid #fcb69f;
+      padding-bottom: 8px;
+    }
+    img {
+      border-radius: 15px;
+      margin: 10px;
+    }
+    .foto-profil {
+      border-radius: 50%;
+      width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #888;
+      padding: 10px;
+      text-align: center;
+    }
+    .skill-bar {
+      background: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+    .skill-fill {
+      height: 20px;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      text-align: right;
+      padding-right: 10px;
+      color: white;
+      font-size: 12px;
+    }
+    .galeri img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .galeri img:hover {
+      transform: scale(1.1);
+    }
+    blockquote {
+      font-style: italic;
+      color: #555;
+      border-left: 5px solid #fcb69f;
+      padding-left: 15px;
+      margin: 20px 0;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #fcb69f;
+      color: #333;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+    .running-text {
+      background: yellow;
+      color: red;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+      animation: move 15s linear infinite;
+    }
+    @keyframes move {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌟 Website Perkenalan Saya 🌟</h1>
+    <nav>
+      <a href="#tentang">Tentang Saya</a>
+      <a href="#biodata">Biodata</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#skill">Skill</a>
+      <a href="#prestasi">Prestasi</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <div class="running-text">
+    "Belajar dengan giat, membanggakan orang tua, dan meraih masa depan yang bagus!"
+  </div>
+
+  <section id="tentang">
+    <h2>Tentang Saya</h2>
+    <center>
+      <img src="profile.jpg" alt="Foto Profil" class="foto-profil">
+    </center>
+    <p>Halo, nama saya <b>dwiprananta</b>. Saya siswa jurusan <b>Teknik Komputer dan Jaringan</b>. 
+    Saya suka belajar teknologi, membuat website, dan bercita-cita menjadi <b>Network Engineer</b>.</p>
+  </section>
+
+  <section id="biodata">
+    <h2>Biodata Diri</h2>
+    <ul>
+      <li>Nama Lengkap : Dwi Bagus P</li>
+      <li>Tempat/Tanggal Lahir : Lampung, 10 Mei 2000</li>
+      <li>Alamat : lampung</li>
+      <li>Sekolah : SMK TKJ</li>
+      <li>Hobi : Coding, Futsal, Membaca</li>
+      <li>Cita-cita : Network Engineer</li>
+      <li>Motto Hidup : "Kerja keras mengalahkan bakat ketika bakat tidak bekerja keras"</li>
+    </ul>
+  </section>
+
+  <section id="pendidikan">
+    <h2>Riwayat Pendidikan</h2>
+    <table>
+      <tr><th>Tahun</th><th>Sekolah</th></tr>
+      <tr><td>2008 - 2014</td><td>SD Negeri 2 GotongvRoyong</td></tr>
+      <tr><td>2014 - 2017</td><td>SMP Negeri 9 </td></tr>
+      <tr><td>2017 - 2020</td><td>SMK TKJ</td></tr>
+      <tr><td>2021 - 2025 </td><td> UNIVERSITAS SATU NUSA </td></tr>
+    </table>
+  </section>
+
+  <section id="skill">
+    <h2>Keterampilan</h2>
+    <p>Jaringan Komputer</p>
+    <div class="skill-bar"><div class="skill-fill" style="width:80%">80%</div></div>
+    <p>Membuat Website</p>
+    <div class="skill-bar"><div class="skill-fill" style="width:70%">70%</div></div>
+    <p>Microsoft Office</p>
+    <div class="skill-bar"><div class="skill-fill" style="width:90%">90%</div></div>
+  </section>
+
+  <section id="prestasi">
+    <h2>Prestasi & Pengalaman</h2>
+    <ul>
+      <li>Juara 2 Lomba Desain Jaringan SMK se-Lampung (2020)</li>
+      <li>Ketua Ekskul IT Club (2025)</li>
+      <li>Anggota OSIS bidang Teknologi</li>
+    </ul>
+  </section>
+
+  <section id="galeri" class="galeri">
+    <h2>Galeri Aktivitas</h2>
+    <img src="foto1.jpg" alt="Foto 1">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
+  </section>
+
+  <section>
+    <h2>Video Perkenalan</h2>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+    title="YouTube video" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section>
+    <h2>Quote Inspirasi</h2>
+    <blockquote>
+      "Orang sukses adalah mereka yang berani bermimpi besar dan bekerja keras untuk mewujudkannya."
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Testimoni</h2>
+    <p><i>"Dwi adalah siswa yang rajin, kreatif, dan selalu semangat belajar." – Guru TKJ</i></p>
+    <p><i>"Teman yang baik dan suka membantu." – Teman Sekelas</i></p>
+  </section>
+
+  <section id="kontak">
+    <h2>Kontak Saya</h2>
+    <p>Email : dwiprananta@gamil.com</p>
+    <p>Instagram : @rdb_moment</p>
+    <p>No HP : 0821-7225-9357</p>
+
+    <h3>Kirim Pesan</h3>
+    <form>
+      <input type="text" placeholder="Nama Anda">
+      <input type="email" placeholder="Email Anda">
+      <textarea rows="5" placeholder="Tulis pesan..."></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Website Perkenalan Dwi Bagus Prananta, S.Kom</p>
+  </footer>
+
+</body>
+</html>

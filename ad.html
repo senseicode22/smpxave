@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagram Form Utama + Soal untuk 3 Siswa SMP</title>
+  <style>
+    body{font-family: Inter, system-ui, -apple-system, Roboto, "Segoe UI", Arial; padding:24px; background:#f6f8fb; color:#12212b}
+    .canvas{max-width:1000px; margin:0 auto; background:#fff; border-radius:12px; padding:20px; box-shadow:0 6px 20px rgba(16,24,40,0.08)}
+    h1{font-size:20px; margin:0 0 6px}
+    p.small{color:#475569; margin-top:0}
+    /* SVG container */
+    .diagram{display:flex; justify-content:center; padding:20px}
+    svg{width:100%; height:420px}
+    .legend{margin-top:8px; font-size:13px; color:#334155}
+    .cards{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px}
+    .card{background:#fbfdff; border-radius:10px; padding:12px; box-shadow:0 2px 8px rgba(15,23,42,0.04)}
+    .card h3{margin:0 0 8px; font-size:15px}
+    ol{padding-left:18px}
+    .student{font-weight:600}
+    @media (max-width:800px){.cards{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <h1>Diagram Struktur Aplikasi (Login → Form Utama ← Semua Modul)</h1>
+    <p class="small">Diagram bersih tanpa coretan; setiap modul mengarah ke <strong>Form Utama</strong>. File ini juga berisi soal untuk 3 siswa SMP yang aktif & pintar, siap dipakai untuk pengerjaan di Visual Studio Code.</p>
+
+    <div class="diagram">
+      <!-- Clean SVG diagram -->
+      <svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram Form Utama">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#0f172a" />
+          </marker>
+        </defs>
+
+        <!-- Login box top -->
+        <rect x="430" y="10" width="140" height="42" rx="8" fill="#e6eef8" stroke="#0f172a" />
+        <text x="500" y="36" font-size="14" font-weight="600" text-anchor="middle" fill="#0f172a">LOGIN</text>
+
+        <!-- Form Utama center -->
+        <rect x="350" y="150" width="300" height="70" rx="12" fill="#fff" stroke="#0f172a" stroke-width="1.6" />
+        <text x="500" y="186" font-size="18" font-weight="700" text-anchor="middle" fill="#0f172a">FORM UTAMA</text>
+
+        <!-- Line from login to form utama -->
+        <line x1="500" y1="52" x2="500" y2="150" stroke="#0f172a" stroke-width="1.4" marker-end="url(#arrow)" />
+
+        <!-- Module boxes around -->
+        <!-- Calculator left-top -->
+        <rect x="70" y="90" width="220" height="56" rx="8" fill="#eef2ff" stroke="#0f172a" />
+        <text x="180" y="126" font-size="14" font-weight="600" fill="#0f172a">KALKULATOR</text>
+        <line x1="290" y1="118" x2="350" y2="185" stroke="#0f172a" stroke-width="1.2" marker-end="url(#arrow)" />
+
+        <!-- Rumus Segitiga right-top -->
+        <rect x="710" y="90" width="220" height="56" rx="8" fill="#eef2ff" stroke="#0f172a" />
+        <text x="820" y="126" font-size="14" font-weight="600" fill="#0f172a">RUMUS SEGITIGA</text>
+        <line x1="710" y1="118" x2="650" y2="185" stroke="#0f172a" stroke-width="1.2" marker-end="url(#arrow)" />
+
+        <!-- Game 1 bottom-right -->
+        <rect x="620" y="260" width="240" height="62" rx="10" fill="#fff7ef" stroke="#0f172a" />
+        <text x="740" y="298" font-size="16" font-weight="700" fill="#0f172a">GAME 1</text>
+        <line x1="620" y1="290" x2="650" y2="220" stroke="#0f172a" stroke-width="1.2" marker-end="url(#arrow)" />
+
+        <!-- Game 2 bottom-left -->
+        <rect x="140" y="260" width="200" height="62" rx="10" fill="#fff7ef" stroke="#0f172a" />
+        <text x="240" y="298" font-size="16" font-weight="700" fill="#0f172a">GAME 2</text>
+        <line x1="340" y1="290" x2="400" y2="220" stroke="#0f172a" stroke-width="1.2" marker-end="url(#arrow)" />
+
+        <!-- Small connectors into Form Utama from below (visual arrowheads pointing to center) -->
+        <line x1="500" y1="220" x2="500" y2="220" stroke-opacity="0" />
+
+        <!-- Decorative dots to show centrality -->
+        <circle cx="500" cy="220" r="2" fill="#0f172a" />
+      </svg>
+    </div>
+
+    <div class="legend">Catatan: Semua modul (Kalkulator, Rumus Segitiga, Game 1, Game 2) <strong>mengarah ke Form Utama</strong>. Login hanya membuka Form Utama. Tidak ada coretan.</div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>KALKULATOR — Soal untuk 3 siswa SMP (aktif & pintar)</h3>
+        <ol>
+          <li><span class="student">Siswa A</span> — Hitung cepat: 125 × 8 − (72 ÷ 9) = ? Jelaskan langkahmu singkat.</li>
+          <li><span class="student">Siswa B</span> — Puzzle tanda: Temukan hasil dari 3□4□5 jika operator yang dipakai adalah +, −, ×, ÷ dan harus menghasilkan 23 (boleh pakai kurung). Tulis operasi yang benar.</li>
+          <li><span class="student">Siswa C</span> — Tantangan logika: Angka X dikalikan 7 sama dengan 3 lebih sedikit dari 100. Berapa X? Tunjukkan cara cek menggunakan kalkulator.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>RUMUS SEGITIGA — Soal untuk 3 siswa SMP</h3>
+        <ol>
+          <li><span class="student">Siswa A</span> — Diketahui segitiga siku-siku dengan panjang alas 6 cm dan tinggi 8 cm. Hitung luas dan panjang sisi miringnya (pakai teorema Pythagoras).</li>
+          <li><span class="student">Siswa B</span> — Segitiga sama sisi dengan sisi 12 cm: hitung keliling dan luasnya (gunakan rumus luas = (√3/4) × sisi²). Perlihatkan pembulatan sampai 2 desimal.
+          </li>
+          <li><span class="student">Siswa C</span> — Segitiga sembarang: diketahui a=7 cm, b=10 cm, sudut antara a dan b = 60°. Hitung panjang sisi c menggunakan aturan cosinus (jika c² = a² + b² − 2ab cos C).
+          </li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>GAME 1 — Ide & Soal (edukatif, cepat, kompetitif)</h3>
+        <ol>
+          <li><span class="student">Tantangan Hitungan Waktu (Siswa A)</span> — Dalam 30 detik, selesaikan sebanyak mungkin operasi campuran (±×÷) yang muncul. Skor = jumlah jawaban benar.</li>
+          <li><span class="student">Riddle Angka (Siswa B)</span> — Temukan angka rahasia: jumlah tiga angka = 18, produknya = 216, angka-angka berurutan. Berapa ketiganya?</li>
+          <li><span class="student">Mode Kooperatif (Siswa C)</span> — Dua pemain harus menyusun tiga operasi sehingga hasil akhir menjadi bilangan prima terkecil >50. Tunjukkan satu contoh.
+          </li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>GAME 2 — Ide & Soal (puzzle visual + logika)</h3>
+        <ol>
+          <li><span class="student">Siswa A</span> — Pola Gambar: Tunjukkan pola angka 2, 4, 8, 14, 22,... Tentukan aturan pola dan angka ke-8.
+          </li>
+          <li><span class="student">Siswa B</span> — Labirin Logika: Di papan 5×5 ada rintangan; hitung langkah minimum dari (1,1) ke (5,5) lewat aturan hanya ke kanan/bawah dan hindari rintangan yang diberikan (berikan skenario rintangannya di aplikasi).
+          </li>
+          <li><span class="student">Siswa C</span> — Tebak Bentuk: Berikan tiga potongan bangun datar; susun jadi segitiga sama sisi. Gambarkan langkah susunannya (soal interaktif di aplikasi: drag & drop).
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <p style="margin-top:16px; font-size:13px; color:#374151">Panduan singkat implementasi di Visual Studio Code: buat folder proyek berisi HTML/JS/CSS. Buat berkas modul terpisah (calculator.js, segitiga.js, game1.js, game2.js) dan halaman utama (index.html) yang berperan sebagai <em>Form Utama</em>. Gunakan event listener untuk menavigasi antara modul dan selalu kirimkan hasil ke Form Utama untuk ditampilkan / disimpan.</p>
+  </div>
+</body>
+</html>

